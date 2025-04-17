@@ -12,10 +12,14 @@ export default defineConfig({
       exclude: [
         '**/__tests__/**',
         '**/__mocks__/**',
+        '**/test/**',
         '**/node_modules/**',
         '**/.github/**',
         '*.config.js',
-        '**/*.spec.ts'
+        '**/*.spec.ts',
+        '**/*.module.ts',
+        'eslint.config.mjs',
+        'src/main.ts'
       ],
       provider: 'v8',
       all: true
