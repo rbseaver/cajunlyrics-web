@@ -34,7 +34,7 @@
   },
   "scripts": {
     "test": "vitest --watch",
-    "test:coverage": "vitest --coverage --reporter=lcov --reporter=text",
+    "test:coverage": "vitest --coverage",
     "build": "nest build",
     "start:dev": "nest start --watch",
     "start:prod": "node ."
