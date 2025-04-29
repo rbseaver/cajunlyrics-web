@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.0](https://github.com/rbseaver/cajunlyrics-web/compare/v1.0.0...v2.0.0) (2025-04-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* The version endpoint will now return a JSON object instead of a simple version string. This will allow the addition of other properties about the current build. Yes, this runs afoul of YAGNI. Sue me.
+
+### Features
+
+* change return type for version endpoint ([269bd76](https://github.com/rbseaver/cajunlyrics-web/commit/269bd76a37fffb2d23a4b346e7be000527e73022))
+
 ## 1.0.0 (2025-04-29)
 
 
