@@ -5,11 +5,17 @@ import { vol } from 'memfs';
 
 vi.mock('node:fs', async () => {
   return {
-    default: {
-      readFileSync: vi.fn((filePath: string, encoding: string) => {
-        return vol.readFileSync(filePath, encoding);
-      }),
-    },
+    readFileSync: vi.fn((filePath: string, encoding: string) => {
+      return vol.readFileSync(filePath, encoding);
+    })
+  };
+});
+
+vi.mock('node:path', async () => {
+  return {
+    resolve: vi.fn((...args: string[]) => {
+      return args.join('/');
+    })
   };
 });
 
@@ -31,7 +37,7 @@ describe('when invoking version service', () => {
   describe('and package.json exists', () => {
     beforeEach(() => {
       vol.fromJSON({
-        'package.json': JSON.stringify({
+        './package.json': JSON.stringify({
           version: '1.0.0'
         }),
       })
