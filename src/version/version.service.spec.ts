@@ -50,9 +50,11 @@ describe('when invoking version service', () => {
     });
 
     it('it should return the semantic version', () => {
-      const version = service.getVersion();
+      const buildInfo = service.getVersion();
 
-      expect(version).toBe('1.0.0');
+      expect(buildInfo).toEqual({
+        version: '1.0.0'
+      });
     });
   });
 
