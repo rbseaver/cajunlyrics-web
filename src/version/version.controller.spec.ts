@@ -5,7 +5,9 @@ import { VersionService } from './version.service';
 describe('VersionController', () => {
   let controller: VersionController;
   const mockVersionService = {
-    getVersion: vi.fn().mockReturnValue('1.0.0'),
+    getVersion: vi.fn().mockReturnValue({
+      version: '1.0.0'
+    })
   };
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -20,7 +22,9 @@ describe('VersionController', () => {
   });
 
   it('should get version from version service', () => {
-    const version: string =  controller.getVersion();
-    expect(version).toBe('1.0.0');
+    const buildInfo = controller.getVersion();
+    expect(buildInfo).toEqual({
+      version: '1.0.0'
+    })
   });
 });
