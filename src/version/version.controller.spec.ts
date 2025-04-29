@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { VersionController } from './version.controller';
 import { VersionService } from './version.service';
-import { mock } from 'node:test';
 
 describe('VersionController', () => {
   let controller: VersionController;
