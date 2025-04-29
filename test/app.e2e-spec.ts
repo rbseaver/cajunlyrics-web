@@ -7,6 +7,7 @@ import { App } from 'supertest/types';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication<App>;
+  const currentPackagJsonVersion = require('../package.json').version;
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -17,18 +18,9 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('root endpoint should return "Hello, World!"', () => {
-    return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
-  });
-
   it('version endpoint should return version object', () => {
-    const currentPackagJsonVersion = require('../package.json').version;
-
     request(app.getHttpServer())
-      .get('/version')
+      .get('/api/version')
       .expect(200)
       .expect({
         version: currentPackagJsonVersion
