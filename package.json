@@ -13,6 +13,7 @@
     "@vitest/ui": "^3.0.9",
     "faker": "^5.5.3",
     "memfs": "^4.17.0",
+    "mocha": "^11.1.0",
     "sinon": "^20.0.0",
     "supertest": "^7.1.0",
     "ts-node": "^10.9.2",
@@ -35,6 +36,7 @@
   "scripts": {
     "test": "vitest --watch",
     "test:coverage": "vitest --coverage",
+    "test:e2e": "mocha -r ts-node/register test/**/*.e2e-spec.ts",
     "build": "nest build",
     "start:dev": "nest start --watch",
     "start:prod": "node ."
