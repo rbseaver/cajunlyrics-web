@@ -35,7 +35,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "vitest --watch",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",
     "test:e2e": "mocha",
     "build": "nest build",
