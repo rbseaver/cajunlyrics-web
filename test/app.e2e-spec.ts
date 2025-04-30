@@ -3,27 +3,33 @@ import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
 import { App } from 'supertest/types';
+import { before, test } from 'mocha'
+import * as packageJson from '../package.json';
 
-
-describe('AppController (e2e)', () => {
+describe('when calling api', () => {
   let app: INestApplication<App>;
-  const currentPackagJsonVersion = require('../package.json').version;
+  const currentPackagJsonVersion = packageJson.version;
 
-  beforeEach(async () => {
+  before(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
 
     app = moduleFixture.createNestApplication();
+
+    app.setGlobalPrefix('api');
+
     await app.init();
   });
 
-  it('version endpoint should return version object', () => {
-    request(app.getHttpServer())
-      .get('/api/version')
-      .expect(200)
-      .expect({
-        version: currentPackagJsonVersion
-      });
+  describe('and querying /version endpoint', () => {
+    test('it should return version object', async () => {
+      await request(app.getHttpServer())
+        .get('/api/version')
+        .expect(200)
+        .expect({
+          version: currentPackagJsonVersion
+        });
+    });    
   });
 });
