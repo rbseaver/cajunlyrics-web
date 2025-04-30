@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.1.0](https://github.com/rbseaver/cajunlyrics-web/compare/v2.0.0...v2.1.0) (2025-04-30)
+
+
+### Features
+
+* **ci:** introduce Github Actions ([86f5831](https://github.com/rbseaver/cajunlyrics-web/commit/86f583188a48d77e21007db3dba8ebb3f47aeb7c))
+* set global prefix of /api, per the rest of the world ([e26c757](https://github.com/rbseaver/cajunlyrics-web/commit/e26c7573519bd5ffc21b653108df183753b7921f))
+
 ## [2.0.0](https://github.com/rbseaver/cajunlyrics-web/compare/v1.0.0...v2.0.0) (2025-04-29)
 
 
