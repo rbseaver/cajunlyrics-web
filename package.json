@@ -41,8 +41,8 @@
     "test:e2e": "mocha",
     "build": "nest build",
     "start:dev": "nest start --watch",
-    "start:prod": "node dist/main",
-    "start": "npm run start:prod"
+    "start:local": "node dist/main",
+    "start": "node main"
   },
   "author": "",
   "license": "ISC"
