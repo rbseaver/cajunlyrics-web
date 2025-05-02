@@ -12,6 +12,8 @@
     "@types/supertest": "^6.0.3",
     "@vitest/coverage-v8": "^3.0.9",
     "@vitest/ui": "^3.0.9",
+    "esbuild": "^0.25.3",
+    "esbuild-node-externals": "^1.18.0",
     "faker": "^5.5.3",
     "memfs": "^4.17.0",
     "mocha": "^11.1.0",
@@ -40,6 +42,7 @@
     "test:coverage": "vitest --coverage",
     "test:e2e": "mocha",
     "build": "nest build",
+    "build:prod": "node build.js && cp package.json dist/",
     "start:dev": "nest start --watch",
     "start:local": "node dist/main",
     "start": "node main"

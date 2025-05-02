@@ -26,6 +26,7 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+          cache-dependency-path: package-lock.json
 
       - name: Install all dependencies
         run: npm install
@@ -37,12 +38,18 @@ jobs:
         run: npm run test:e2e
 
       - name: Build for production
-        run: npm run build
+        run: npm run build:prod
 
       - name: Install production dependencies only
         run: |
           rm -rf node_modules
-          npm install  --production
+          npm ci  --production
+
+      - name: Zip the build
+        run: |
+          zip -r dist.zip ./dist
+      - name: Verify build output
+        run: test -f dist/main.js && echo "Build output verified."
 
       - name: Deploy to Azure web app
         uses: azure/webapps-deploy@v2
@@ -50,4 +57,4 @@ jobs:
           app-name: 'cajunlyrics-api'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: './dist'
+          package: './dist.zip'
