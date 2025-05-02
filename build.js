@@ -9,9 +9,13 @@ build({
   platform: 'node',
   target: 'node20',
   outdir: 'dist',
-  plugins: [nodeExternalsPlugin()], // Automatically handle node_modules
-  external: ['reflect-metadata', // Keep this external for NestJS
-    'class-validator',  // Mark these as external
+  treeShaking: true,
+  external: [                  // Exclude native modules and tricky dependencies
+    'fs', 'path', 'os', 'crypto', 'http', 'https', 'zlib', 'stream',
+    '@nestjs/microservices',   // Mark optional NestJS dependencies as external
+    '@nestjs/websockets',      // Add other optional dependencies here
+    'class-validator',         // If needed, mark other tricky dependencies as external
     'class-transformer',
-    '@nestjs/*',], // Ensure this stays external
+  ],
+  resolveExtensions: ['.ts', '.js'] // Resolve TypeScript and JavaScript files
 }).catch(() => process.exit(1));
