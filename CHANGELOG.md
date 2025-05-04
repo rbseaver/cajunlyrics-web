@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.2.0](https://github.com/rbseaver/cajunlyrics-web/compare/v2.1.0...v2.2.0) (2025-05-04)
+
+
+### Features
+
+* **ci:** establish a ci/cd workflow ([9a30d6e](https://github.com/rbseaver/cajunlyrics-web/commit/9a30d6ecb1cb4c9df30fc455d20a242e2f956715))
+
 ## [2.1.0](https://github.com/rbseaver/cajunlyrics-web/compare/v2.0.0...v2.1.0) (2025-04-30)
 
 
