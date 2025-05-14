@@ -10,11 +10,12 @@ export default defineConfig({
     coverage: {
       reporter: ['lcov', 'cobertura'],
       exclude: [
-        '**/__tests__/**',
-        '**/__mocks__/**',
-        '**/test/**',
-        '**/node_modules/**',
+        '**/.idea/**',
         '**/.github/**',
+        '**/dist/**',
+        '**/coverage/**',
+        '**/node_modules/**',
+        '**/test/**',
         '*.config.js',
         '**/*.spec.ts',
         '**/*.module.ts',
