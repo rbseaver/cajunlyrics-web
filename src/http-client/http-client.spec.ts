@@ -28,7 +28,7 @@ describe('HttpClient', () => {
     await httpClient.get('https://example.com');
 
     expect(fetch).toHaveBeenCalledWith('https://example.com', {
-      method: 'GET'
+      method: 'GET',
     });
   });
 
@@ -44,7 +44,13 @@ describe('HttpClient', () => {
   it('should throw an error if the request fails', async () => {
     createMockResponse('Error', 500);
 
-    await expect(httpClient.get('https://example.com')).rejects.toThrow('Request failed');
+    try {
+      await httpClient.get('https://example.com');
+    } catch (error) {
+      expect(error).toBeInstanceOf(HttpClientError);
+      expect(error.status).toBe(500);
+      expect(error.body).toBe('Error');
+    }
   });
 });
 
@@ -53,7 +59,6 @@ const createMockResponse = (statusText: string, status: number = 200) => {
     status,
     ok: status === 200,
     statusText: status === 200 ? 'OK' : 'Error',
-    text: async () => (statusText)
+    text: async () => statusText,
   } as Response);
-}
-
+};

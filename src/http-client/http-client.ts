@@ -14,10 +14,9 @@ export class HttpClientError extends Error {
 
 @Injectable()
 export class HttpClient {
-
   async get(url: string): Promise<string> {
     const response = await fetch(url, {
-      method: 'GET'
+      method: 'GET',
     });
 
     const body = await response.text();
@@ -30,8 +29,6 @@ export class HttpClient {
   }
 
   private throwHttpClientError(response: Response, body: string) {
-    throw new HttpClientError(`Request failed`,
-      response.status,
-      body);
+    throw new HttpClientError(`Request failed`, response.status, body);
   }
 }
