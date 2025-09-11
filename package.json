@@ -47,7 +47,8 @@
     "build:prod": "node build.js && cp package.json dist/",
     "start:dev": "nest start --watch",
     "start:local": "node dist/main",
-    "start": "node main"
+    "start": "node main",
+    "docker": "docker-compose -p cajunlyrics up --build"
   },
   "author": "",
   "license": "ISC"
