@@ -40,6 +40,7 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",
+    "test:all": "npm run test && npm run test:e2es",
     "test:e2e": "mocha",
     "build": "nest build",
     "build:prod": "node build.js && cp package.json dist/",
