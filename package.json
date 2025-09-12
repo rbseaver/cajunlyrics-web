@@ -48,7 +48,8 @@
     "start:dev": "nest start --watch",
     "start:local": "node dist/main",
     "start": "node main",
-    "docker": "docker-compose -p cajunlyrics up --build"
+    "docker": "docker-compose -p cajunlyrics up --build",
+    "deploy": "gcloud run deploy cajunlyrics-backend --source . --region us-central1 --project cajun-lyrics --allow-unauthenticated"
   },
   "author": "",
   "license": "ISC"
