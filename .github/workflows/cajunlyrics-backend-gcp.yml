@@ -1,4 +1,4 @@
-name: Deploy NestJS API to GCP
+name: Deploy CajunLyrics API to GCP
 
 on:
   push:
@@ -22,20 +22,20 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/nestjs-api .
+          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/cajunlyrics-api .
 
       - name: Configure Docker to use gcloud credentials
         run: |
           gcloud auth configure-docker gcr.io --quiet
-          
+
       - name: Push Docker image to GCR
         run: |
-          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/nestjs-api
+          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/cajunlyrics-api
 
       - name: Deploy to Cloud Run
         run: |
-          gcloud run deploy nestjs-api \
-            --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/nestjs-api \
+          gcloud run deploy cajunlyrics-api \
+            --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/cajunlyrics-api \
             --region us-central1 \
             --platform managed \
             --allow-unauthenticated
